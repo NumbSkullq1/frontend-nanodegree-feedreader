@@ -13,7 +13,7 @@ $(function() {
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
     */
-    describe('RSS Feeds', function() {
+    describe('RSS Feeds?', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
          * empty. Experiment with this before you get started on
@@ -27,20 +27,36 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* Done: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         it("url is defined and has valid link", function(){
+              allFeeds.forEach(function(feed){
+                expect(feed.url).toBeDefined()
+                expect(feed.url.length).not.toBeNull();
+                expect(feed.url).toMatch(/^(http|https):\/\//);
+              });
+            });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* Done: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+
+         it("name is defined and it is not empty", function(){
+              allFeeds.forEach(function(feed){
+                expect(feed.name).toBeDefined()
+                expect(feed.name.length).not.toBeNull();
+                expect(typeof feed.name).toBe("string");
+              });
+            });
     });
 
 
     /* TODO: Write a new test suite named "The menu" */
+    describe("The menu", function(){
 
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
@@ -54,6 +70,7 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 
+      });
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
